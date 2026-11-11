@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Alfred_production: TikTok authorization</title><link rel="stylesheet" href="style.css"></head>
+<body><main>
+<h1>TikTok authorization received</h1>
+<p>Copy the full address of this page (address bar) and give it to the publishing tool.
+The one-time code it contains is valid for a few minutes only.</p>
+<p class="note">Français : copiez l'adresse complète de cette page (barre d'adresse) et donnez-la à l'outil de publication.
+Le code qu'elle contient n'est valable que quelques minutes.</p>
+<p id="etat" class="note"></p>
+<script>
+  var q = new URLSearchParams(location.search);
+  document.getElementById('etat').textContent = q.get('code') ? 'Code présent : OK.' :
+    (q.get('error') ? 'Erreur : ' + q.get('error') + ' ' + (q.get('error_description') || '') : 'Aucun code dans l\'adresse.');
+</script>
+</main></body></html>
